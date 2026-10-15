@@ -85,3 +85,18 @@ redelivered by the queue. Callers already dial `dns:///` targets with
 See the root [`AGENTS.md`](../AGENTS.md). `src/auth.rs` and `src/policy.rs` are
 the reference implementation of the service-token pattern for the Rust
 services; `cotab-api/internal/grpcapi/auth.go` is the Go one.
+
+## Private protobuf dependency
+
+`cotab-proto` is private. CI uses the `COTAB_PROTO_SSH_KEY` Actions secret,
+with a dedicated read-only deploy key registered on `brojyf/cotab-proto`.
+The key is forwarded into Docker through BuildKit SSH mounts and is never
+copied into an image. Pull requests verify both tests and the Docker build;
+only pushes to `main` publish and deploy.
+
+For local builds, use an SSH agent with GitHub access and configure Git:
+
+```sh
+git config --global url."ssh://git@github.com/brojyf/cotab-proto".insteadOf https://github.com/brojyf/cotab-proto
+docker build --ssh default .
+```
