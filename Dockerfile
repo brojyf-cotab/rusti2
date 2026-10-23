@@ -9,7 +9,7 @@ WORKDIR /app
 
 RUN mkdir -p -m 0700 /root/.ssh \
     && echo 'github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl' > /root/.ssh/known_hosts \
-    && git config --global url."ssh://git@github.com/brojyf/cotab-proto".insteadOf https://github.com/brojyf/cotab-proto
+    && git config --global url."ssh://git@github.com/brojyf-cotab/cotab-proto".insteadOf https://github.com/brojyf/cotab-proto
 
 COPY .cargo ./.cargo
 COPY Cargo.toml Cargo.lock ./
