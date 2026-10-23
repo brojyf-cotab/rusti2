@@ -28,7 +28,7 @@ jobs:
           echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> "$GITHUB_ENV"
           mkdir -p ~/.ssh
           echo 'github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl' >> ~/.ssh/known_hosts
-          git config --global url."ssh://git@github.com/brojyf/cotab-proto".insteadOf https://github.com/brojyf/cotab-proto
+          git config --global url."ssh://git@github.com/brojyf-cotab/cotab-proto".insteadOf https://github.com/brojyf/cotab-proto
           git ls-remote --exit-code https://github.com/brojyf/cotab-proto 'refs/tags/v0.2.0' > /dev/null
       - name: Install protoc
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends protobuf-compiler
@@ -60,7 +60,7 @@ jobs:
           echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> "$GITHUB_ENV"
           mkdir -p ~/.ssh
           echo 'github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl' >> ~/.ssh/known_hosts
-          git config --global url."ssh://git@github.com/brojyf/cotab-proto".insteadOf https://github.com/brojyf/cotab-proto
+          git config --global url."ssh://git@github.com/brojyf-cotab/cotab-proto".insteadOf https://github.com/brojyf/cotab-proto
           git ls-remote --exit-code https://github.com/brojyf/cotab-proto 'refs/tags/v0.2.0' > /dev/null
       - name: Log in to GHCR
         uses: docker/login-action@v4
