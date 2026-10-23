@@ -8,7 +8,7 @@ on:
 env:
   CARGO_TERM_COLOR: always
   REGISTRY: ghcr.io
-  IMAGE_NAME: brojyf/rusti2
+  IMAGE_NAME: brojyf-cotab/rusti2
   COOLIFY_API_URL: https://coolify.co-gate.com/api/v1
   COOLIFY_APP_UUID: ynp3r9wnf8hw8uiir43vk1pv
 
