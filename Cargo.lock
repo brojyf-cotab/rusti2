@@ -775,16 +775,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "773648b94d0e5d620f64f280777445740e61fe701025087ec8b57f45c791888b"
 
 [[package]]
-name = "cotab-proto"
-version = "0.2.0"
-source = "git+https://github.com/brojyf/cotab-proto?tag=v0.2.0#cbb0f878ebae597f102a00728205725c0b3f20db"
-dependencies = [
- "prost 0.13.5",
- "tonic",
- "tonic-build",
-]
-
-[[package]]
 name = "cpufeatures"
 version = "0.2.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2388,7 +2378,6 @@ dependencies = [
  "aws-sdk-s3",
  "axum",
  "bytes",
- "cotab-proto",
  "http 1.5.0",
  "http-body-util",
  "opentelemetry",
@@ -2396,11 +2385,13 @@ dependencies = [
  "opentelemetry-otlp",
  "opentelemetry_sdk",
  "proptest",
+ "prost 0.13.5",
  "serde",
  "serde_json",
  "tokio",
  "tokio-stream",
  "tonic",
+ "tonic-build",
  "tonic-health",
  "tower",
  "tower-http",

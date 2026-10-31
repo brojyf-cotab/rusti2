@@ -2,20 +2,18 @@
 FROM rust:1.97-bookworm AS builder
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends protobuf-compiler openssh-client \
+    && apt-get install -y --no-install-recommends protobuf-compiler \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-RUN mkdir -p -m 0700 /root/.ssh \
-    && echo 'github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl' > /root/.ssh/known_hosts \
-    && git config --global url."ssh://git@github.com/brojyf-cotab/cotab-proto".insteadOf https://github.com/brojyf/cotab-proto
-
 COPY .cargo ./.cargo
 COPY Cargo.toml Cargo.lock ./
+COPY build.rs ./
+COPY proto ./proto
 COPY src ./src
 
-RUN --mount=type=ssh,required=true cargo build --locked --release
+RUN cargo build --locked --release
 
 FROM debian:bookworm-slim AS runtime
 
